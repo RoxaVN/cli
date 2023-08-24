@@ -8,6 +8,7 @@
     "test": "jest --passWithNoTests",
     "test:watch": "jest --passWithNoTests --watch",
     "test:cov": "rimraf coverage && jest --passWithNoTests --coverage",
+    "prepublishOnly": "npm run build",
     "prepare": "husky install"
   },
   "license": "MIT",
@@ -50,6 +51,8 @@
     "typescript": "^5.0.4"
   },
   "files": [
+    "CHANGELOG.md",
+    "LICENSE.txt",
     "/dist",
     "/templates"
   ]

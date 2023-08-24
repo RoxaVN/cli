@@ -5,6 +5,7 @@ to: package.json
   "name": "<%= module_name %>",
   "version": "0.1.0",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "roxavn build",
     "dev": "roxavn dev"
   },
@@ -51,6 +52,8 @@ to: package.json
     }
   },
   "files": [
+    "CHANGELOG.md",
+    "LICENSE.txt",
     "/dist",
     "/static"
   ]
