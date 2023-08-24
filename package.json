@@ -1,6 +1,6 @@
 {
   "name": "@roxavn/cli",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "module": "dist/index.js",
   "type": "module",
   "scripts": {
