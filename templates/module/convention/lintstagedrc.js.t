@@ -1,5 +1,6 @@
 ---
 to: .lintstagedrc.cjs
+unless_exists: true
 ---
 const { ESLint } = require('eslint');
 

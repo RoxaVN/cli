@@ -1,5 +1,6 @@
 ---
 to: .eslintrc.cjs
+unless_exists: true
 ---
 module.exports = {
   parser: '@typescript-eslint/parser',

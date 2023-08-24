@@ -1,5 +1,6 @@
 ---
 to: .editorconfig
+unless_exists: true
 ---
 root = true
 
