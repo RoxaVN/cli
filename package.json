@@ -4,7 +4,7 @@
   "module": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+    "build": "rimraf dist && tsc -p tsconfig.build.json && chmod +x dist/cli.js && npm i",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --passWithNoTests --watch",
     "test:cov": "rimraf coverage && jest --passWithNoTests --coverage"
