@@ -29,7 +29,22 @@ class ReplService {
       }
     }
 
-    Object.assign(replServer.context, coreServer, { runInstallHooks });
+    async function runHook(serviceName: string) {
+      const currentModule = moduleManager.currentModule;
+      if (currentModule.exports['./hook']) {
+        const moduleHook = await import(currentModule.name + '/hook');
+        const serviceClass = moduleHook[serviceName];
+        if (serviceClass) {
+          const service: any = await serviceContainer.getAsync(serviceClass);
+          return await service.handle();
+        }
+      }
+      throw new Error(
+        `Not found ${serviceName} in "${currentModule.name}/hook"`
+      );
+    }
+
+    Object.assign(replServer.context, coreServer, { runInstallHooks, runHook });
   }
 }
 
