@@ -4,7 +4,7 @@ inject: true
 before: export const
 skip_if: '\.upsert\('
 ---
-class Upsert<%= h.changeCase.pascal(api_source_name) %>Request extends ExactProps<Upsert<%= h.changeCase.pascal(api_source_name) %>Request> {
+export class Upsert<%= h.changeCase.pascal(api_source_name) %>Request extends ExactProps<Upsert<%= h.changeCase.pascal(api_source_name) %>Request> {
   @MinLength(1)
   public readonly name: string;
 }
