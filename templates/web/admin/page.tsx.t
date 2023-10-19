@@ -22,7 +22,7 @@ const Page = () => {
       api={<%= h.inflection.singularize(h.changeCase.camel(path_name)) %>Api.getMany}
       header={t('<%= h.changeCase.camel(path_name) %>')}
       columns={{
-        name: { label: t('name') },
+        name: { label: tCore('name') },
         updatedDate: {
           label: tCore('updatedDate'),
           render: utils.Render.relativeTime,
