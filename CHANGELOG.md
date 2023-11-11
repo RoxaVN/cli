@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/RoxaVN/roxavn/compare/v0.2.4...v0.2.5) (2023-11-11)
+
+### Features
+
+- add .env to gitignore template ([5dfbc7c](https://github.com/RoxaVN/roxavn/commit/5dfbc7c0a8dd0729a94ff02e3640e5653ef5fd86))
+- add api delete template ([46d21da](https://github.com/RoxaVN/roxavn/commit/46d21da95acd3e22d79000e772dd612153c0fedb))
+- add runHook in repl context ([f671bf5](https://github.com/RoxaVN/roxavn/commit/f671bf529d80130be53118d5c08eb24612c8cdd6))
+- add socket template ([23fe555](https://github.com/RoxaVN/roxavn/commit/23fe5558c9029569ecd9091480819a55f20f4fb3))
+- add upsert api template ([115f26b](https://github.com/RoxaVN/roxavn/commit/115f26b2580b73f9a44966fb40ea2ccd53a076bd))
+- export request class of api template ([9bb6df7](https://github.com/RoxaVN/roxavn/commit/9bb6df77e12ef23bd3223626085129bc8845a201))
+
+### Bug Fixes
+
+- cannot read file tsconfig.json ([3dd11a5](https://github.com/RoxaVN/roxavn/commit/3dd11a5c3f666329d68e11b6797b195b133d1907))
+- not append to index file ([313d3cf](https://github.com/RoxaVN/roxavn/commit/313d3cf803dbd88896e502ba382629a538e130a8))
+- work with typeorm-transactional ([88d5869](https://github.com/RoxaVN/roxavn/commit/88d586994f5beac0afe5232044a7862cec1cb4bb))
+- wrong template ([dfb8b44](https://github.com/RoxaVN/roxavn/commit/dfb8b44c3b741dece74049c4faa69d56c645ac62))
+
 ### 0.2.4 (2023-08-24)
 
 ### Features
