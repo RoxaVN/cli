@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/RoxaVN/roxavn/compare/v0.2.5...v0.2.6) (2023-11-12)
+
+### Bug Fixes
+
+- bug ERR_MODULE_NOT_FOUND when run runInstallHooks() ([d8939f0](https://github.com/RoxaVN/roxavn/commit/d8939f0bce93148f046f672686d13d46e498c946))
+- should sync after install dependencies ([23dc4bd](https://github.com/RoxaVN/roxavn/commit/23dc4bd596af9e9c46a890b2effa7954ba298b21))
+
 ### [0.2.5](https://github.com/RoxaVN/roxavn/compare/v0.2.4...v0.2.5) (2023-11-11)
 
 ### Features
