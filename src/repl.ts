@@ -1,11 +1,13 @@
 import { moduleManager, serviceContainer } from '@roxavn/core/server';
 import repl from 'repl';
+import path from 'path';
 
 import { buildService } from './build.js';
 import { cliColors } from './lib/index.js';
 
 class ReplService {
   async run() {
+    console.log('*** Must run at root folder of package ***\n');
     buildService.compile();
 
     const replServer = repl.start(cliColors.green('> '));
@@ -13,15 +15,22 @@ class ReplService {
 
     await moduleManager.importServerModules();
 
+    /**
+     * Run install hook of all modules
+     */
     async function runInstallHooks() {
       for (const moduleInfo of moduleManager.modules) {
         try {
           if (moduleInfo.exports['./hook']) {
-            const moduleHook = await import(moduleInfo.name + '/hook');
-            const installHook: any = await serviceContainer.getAsync(
-              moduleHook.InstallHook
-            );
-            await installHook.handle();
+            if (moduleInfo.name === moduleManager.currentModule.name) {
+              await runHookOfCurrentModule('InstallHook');
+            } else {
+              const moduleHook = await import(moduleInfo.name + '/hook');
+              const installHook: any = await serviceContainer.getAsync(
+                moduleHook.InstallHook
+              );
+              await installHook.handle();
+            }
           }
         } catch (e) {
           console.error(e);
@@ -29,10 +38,17 @@ class ReplService {
       }
     }
 
-    async function runHook(serviceName: string) {
+    /**
+     * Run hook of current module
+     */
+    async function runHookOfCurrentModule(serviceName: string) {
       const currentModule = moduleManager.currentModule;
-      if (currentModule.exports['./hook']) {
-        const moduleHook = await import(currentModule.name + '/hook');
+      const hookConfig = currentModule.exports['./hook'];
+      if (hookConfig) {
+        const hookPath = hookConfig['import'] || hookConfig;
+        const absHookPath = path.resolve(hookPath);
+
+        const moduleHook = await import(absHookPath);
         const serviceClass = moduleHook[serviceName];
         if (serviceClass) {
           const service: any = await serviceContainer.getAsync(serviceClass);
@@ -44,7 +60,10 @@ class ReplService {
       );
     }
 
-    Object.assign(replServer.context, coreServer, { runInstallHooks, runHook });
+    Object.assign(replServer.context, coreServer, {
+      runInstallHooks,
+      runHookOfCurrentModule,
+    });
   }
 }
 
