@@ -8,6 +8,7 @@ import { templateService } from './template.js';
 import { replService } from './repl.js';
 import { migrationService } from './migration.js';
 import { serveService } from './serve.js';
+import { compressService } from './compress.js';
 
 initEnv();
 const program = new Command();
@@ -21,6 +22,12 @@ program
   .command('sync')
   .description('Sync module after installing')
   .action(() => moduleService.sync());
+
+program
+  .command('compress')
+  .description('Compress images in static folder')
+  .option('--quality', 'image quality (default 60)')
+  .action((options) => compressService.run(options));
 
 program
   .command('gen <generator> [action]')
