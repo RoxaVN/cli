@@ -15,7 +15,7 @@ const settingSource = new ApiSource<SettingResponse>(
   baseModule
 );
 
-class Update<%= h.changeCase.pascal(setting_name) %>SettingRequest extends ExactProps<Update<%= h.changeCase.pascal(setting_name) %>SettingRequest> {
+export class Update<%= h.changeCase.pascal(setting_name) %>SettingRequest extends ExactProps<Update<%= h.changeCase.pascal(setting_name) %>SettingRequest> {
 
 }
 
