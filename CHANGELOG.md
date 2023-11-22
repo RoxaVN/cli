@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/RoxaVN/roxavn/compare/v0.2.6...v0.2.7) (2023-11-22)
+
+### Features
+
+- add getPackageRootPath ([08773b5](https://github.com/RoxaVN/roxavn/commit/08773b5f0ed22d7f04ed82230d5704c0628e6d0b))
+- add setting api template ([4e7b952](https://github.com/RoxaVN/roxavn/commit/4e7b9523fb7952369ada00857a504dac58ffd7bc))
+
+### Bug Fixes
+
+- wrong command ([45d7b0e](https://github.com/RoxaVN/roxavn/commit/45d7b0e8fd13b6d2811ea62c057d12c43e3804c6))
+
 ### [0.2.6](https://github.com/RoxaVN/roxavn/compare/v0.2.5...v0.2.6) (2023-11-12)
 
 ### Bug Fixes
