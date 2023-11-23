@@ -6,7 +6,13 @@ import path from 'path';
 import sharp from 'sharp';
 
 class CompressService {
-  run({ quality = 60 }: { quality?: number }) {
+  run({
+    quality = 60,
+    threshold = 0.1,
+  }: {
+    quality?: number;
+    threshold?: number;
+  }) {
     const root = getPackageRootPath();
     visitFiles(path.join(root, 'static'), async (filePath: string) => {
       let out: Buffer | undefined;
@@ -22,12 +28,14 @@ class CompressService {
       if (out) {
         const oldSize = fs.statSync(filePath).size;
         const newSize = out.length;
-        fse.writeFileSync(filePath, out);
-        const reduce = utils.Number.formatPercent(
-          (newSize - oldSize) / oldSize
-        );
+        const compressionRatio = (newSize - oldSize) / oldSize;
+        let compressionText = '';
+        if (compressionRatio > threshold) {
+          fse.writeFileSync(filePath, out);
+          compressionText = utils.Number.formatPercent(compressionRatio);
+        }
         console.log(
-          `[${reduce.padStart(6, ' ')}] ${filePath.slice(
+          `[${compressionText.padStart(6, ' ')}] ${filePath.slice(
             root.length
           )} ${utils.Number.abbreviate(oldSize)} => ${utils.Number.abbreviate(
             newSize

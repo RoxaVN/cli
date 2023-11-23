@@ -27,6 +27,10 @@ program
   .command('compress')
   .description('Compress images in static folder')
   .option('--quality', 'image quality (default 60)')
+  .option(
+    '--threshold',
+    'compression threshold (default 0.1). Not update file if compression ratio < compression threshold'
+  )
   .action((options) => compressService.run(options));
 
 program
