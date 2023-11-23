@@ -1,5 +1,5 @@
 import { initEnv } from '@roxavn/core/server';
-import { Command } from 'commander';
+import { Argument, Command } from 'commander';
 
 import { buildService } from './build.js';
 import { devService } from './dev.js';
@@ -20,12 +20,12 @@ program
 
 program
   .command('sync')
-  .description('Sync module after installing')
+  .description('sync module after installing')
   .action(() => moduleService.sync());
 
 program
   .command('compress')
-  .description('Compress images in static folder')
+  .description('compress images in static folder')
   .option('-q, --quality <number>', 'image quality (default 60)')
   .option('-s, --source <string>', 'source folder (default static)')
   .option(
@@ -36,14 +36,17 @@ program
 
 program
   .command('gen <generator> [action]')
-  .description('Generate from template')
+  .description('generate from template')
   .action((generator: string, action?: string) =>
     templateService.generate([generator, action || 'new'])
   );
 
 program
-  .command('migration [mode]')
-  .description('Database migration')
+  .command('migration')
+  .description('database migration')
+  .addArgument(
+    new Argument('[mode]', 'migration mode').choices(['run', 'revert'])
+  )
   .action((mode: string) => {
     if (mode === 'run') {
       migrationService.run();
@@ -56,22 +59,22 @@ program
 
 program
   .command('dev')
-  .description('Run dev server')
+  .description('run dev server')
   .action(() => devService.run());
 
 program
   .command('serve')
-  .description('Run production server')
+  .description('run production server')
   .action(() => serveService.run());
 
 program
   .command('repl')
-  .description('Run repl server')
+  .description('run repl server')
   .action(() => replService.run());
 
 program
   .command('build')
-  .description('Build module for publish')
+  .description('build module for publish')
   .action(() => buildService.compile());
 
 export default program;
