@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/RoxaVN/roxavn/compare/v0.2.7...v0.2.8) (2023-12-17)
+
+### Features
+
+- add source option to CompressService ([18fd02a](https://github.com/RoxaVN/roxavn/commit/18fd02ab673923d77b2e2c8400b1ca28db955b84))
+- add threshold option to CompressService ([bcaf9e4](https://github.com/RoxaVN/roxavn/commit/bcaf9e4d27a29d68a849ada66a8baa3f6df651ec))
+- better parse mode argument ([d4dc30b](https://github.com/RoxaVN/roxavn/commit/d4dc30b62f03645ea11c0aebd87c784c559abcb3))
+- update @roxavn/dev-web ([05df5ce](https://github.com/RoxaVN/roxavn/commit/05df5ce46324eb06138ea64acd3a636dd019636f))
+
 ### [0.2.7](https://github.com/RoxaVN/roxavn/compare/v0.2.6...v0.2.7) (2023-11-22)
 
 ### Features
