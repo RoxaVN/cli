@@ -42,7 +42,7 @@
     "@remix-run/dev": "^1.19.1",
     "@remix-run/serve": "^1.19.1",
     "@roxavn/core": "^0.2.0",
-    "@roxavn/dev-web": "^0.2.5",
+    "@roxavn/dev-web": "^0.2.6",
     "@sqltools/formatter": "^1.2.5",
     "commander": "^11.0.0",
     "fs-extra": "^11.1.0",
