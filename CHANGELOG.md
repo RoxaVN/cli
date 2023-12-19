@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/RoxaVN/roxavn/compare/v0.2.8...v0.2.9) (2023-12-19)
+
+### Features
+
+- update with dev-web ([944648b](https://github.com/RoxaVN/roxavn/commit/944648b9e19d8ceb5ce0e16e8be49b1ed7f0194a))
+
 ### [0.2.8](https://github.com/RoxaVN/roxavn/compare/v0.2.7...v0.2.8) (2023-12-17)
 
 ### Features
