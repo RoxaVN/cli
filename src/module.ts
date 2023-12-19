@@ -72,15 +72,24 @@ class ModuleService {
         .replaceAll('-', '_');
       new CodeChanger(
         '.web/app/init.modules.ts',
-        '// start block',
-        '// end block'
+        '// start import',
+        '// end import'
       )
         .removeLines(importName)
         .insertEnd(
           module === moduleManager.currentModule.name
-            ? `export { default as ${importName} } from '../../src/web/init';`
-            : `export { default as ${importName} } from '${module}/web/init';`
+            ? `import { default as ${importName} } from '../../src/web/init';`
+            : `import { default as ${importName} } from '${module}/web/init';`
         )
+        .save();
+
+      new CodeChanger(
+        '.web/app/init.modules.ts',
+        '// start export',
+        '// end export'
+      )
+        .removeLines(importName)
+        .insertEnd(`  ${importName},`)
         .save();
     }
   }
