@@ -1,6 +1,7 @@
 import enquirer from 'enquirer';
 import execa from 'execa';
 import { Logger, runner } from 'hygen';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -19,6 +20,16 @@ class TemplateService {
         return execa.command(action, { ...opts, shell: true });
       },
       createPrompter: () => enquirer as any,
+      helpers: {
+        replaceFile: (
+          fileName: string,
+          pattern: string,
+          replacement: string
+        ) => {
+          const data = fs.readFileSync(fileName, 'utf8');
+          fs.writeFileSync(fileName, data.replace(pattern, replacement));
+        },
+      },
     });
   }
 }
