@@ -1,10 +1,10 @@
 ---
 to: src/server/module.ts
-force: true
+inject: true
+after: serverModule
+skip_if: entities
 ---
-import { ServerModule } from '@roxavn/core/server';
+<%= h.replaceFile('src/server/module.ts', '\nexport const serverModule = ServerModule.fromBase(baseModule);\n', 
+`import * as entities from './entities/index.js';
 
-import { baseModule } from '../base/index.js';
-import * as entities from './entities/index.js';
-
-export const serverModule = ServerModule.fromBase(baseModule, { entities });
+export const serverModule = ServerModule.fromBase(baseModule, { entities });`) %>
