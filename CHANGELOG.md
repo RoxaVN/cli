@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/RoxaVN/roxavn/compare/v0.2.9...v0.2.10) (2024-01-09)
+
+### Features
+
+- add replaceFile helper ([42b91cc](https://github.com/RoxaVN/roxavn/commit/42b91cca0408ec959bbccb21e56df6f7a309e254))
+- update with PaginationRequest ([00fe0bf](https://github.com/RoxaVN/roxavn/commit/00fe0bfb72e18076d64b4e3c1a94fe43507c3bc3))
+
+### Bug Fixes
+
+- not force update module file ([ef048a5](https://github.com/RoxaVN/roxavn/commit/ef048a56baed1a9107da08f80fdfdab08e193b65))
+
 ### [0.2.9](https://github.com/RoxaVN/roxavn/compare/v0.2.8...v0.2.9) (2023-12-19)
 
 ### Features
